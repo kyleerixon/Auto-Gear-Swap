@@ -76,7 +76,7 @@ export class AutoGearSwap {
    */
   private getSetAttackTypes = (): (string | undefined)[] =>
     this.user.equipmentSets.map(
-      (x) => (x.equipment.equipment.equippedItems["melvorD:Weapon"]?.item as any)?.attackType,
+      (x) => (x.equipment.equippedItems["melvorD:Weapon"]?.item as any)?.attackType,
     );
 
   /**
