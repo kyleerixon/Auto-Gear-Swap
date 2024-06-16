@@ -81,8 +81,8 @@ export class PotionSelectInterface {
     const that = this;
 
     // setPotion called for every potion in the potion select menu
-    ctx.patch(PotionSelectMenuItem, 'setPotion').after(function () {
-      // 'this' PotionSelectMenuItem instance
+    ctx.patch(PotionSelectMenuItemElement, 'setPotion').after(function () {
+      // 'this' PotionSelectMenuItemElement instance
       that.createDropdownBtn(this.useButton);
     });
 
@@ -238,14 +238,14 @@ export class PotionSelectInterface {
 
   /**
    * Sets the potion ID for each potion select menu item.
-   * @patch {PotionSelectMenu} showPotionSelection - before
-   * @patch {PotionSelectMenu} showPotionSelection - after
+   * @patch {PotionSelectMenuElement} showPotionSelection - before
+   * @patch {PotionSelectMenuElement} showPotionSelection - after
    */
   private setPotionSelectMenuItemID(ctx: Modding.ModContext) {
     const that = this;
 
     // patch before to move the active potion to the front of the array
-    ctx.patch(PotionSelectMenu, 'showPotionSelection').before(function (
+    ctx.patch(PotionSelectMenuElement, 'showPotionSelection').before(function (
       potions: PotionItem[],
       action: Action,
       game: Game,
@@ -260,7 +260,7 @@ export class PotionSelectInterface {
     });
 
     // patch after to set the potion ID for each potion select menu item
-    ctx.patch(PotionSelectMenu, 'showPotionSelection').after(function (
+    ctx.patch(PotionSelectMenuElement, 'showPotionSelection').after(function (
       o: any,
       potions: PotionItem[],
       action: Action,
